@@ -34,3 +34,27 @@
 // )
 
 // console.log('Output2: ' + result2);
+
+
+//Find the Second Largest Number in an Array
+
+function secondLargest(arr) {
+    let max = -Infinity, secondMax = -Infinity;
+
+    for (let num of arr) {
+        if (num > max) {
+            secondMax = max;
+            max = num;
+        } else if (num > secondMax && num !== max) {
+            secondMax = num;
+        }
+    }
+    
+    return secondMax === -Infinity ? null : secondMax;
+}
+
+// Test cases
+console.log(secondLargest([10, 20, 5, 8, 15]));  // 15
+console.log(secondLargest([1, 1, 1]));           // null
+console.log(secondLargest([100, 90, 95]));       // 95
+
